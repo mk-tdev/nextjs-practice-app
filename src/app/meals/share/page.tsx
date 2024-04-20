@@ -11,8 +11,15 @@ const Share = () => {
   return (
     <div className="p-5">
       <h1 className="font-bold">Share your Fav Meal</h1>
-
-      <form className="py-2 " action={shareMeal}>
+      {state.message && (
+        <div
+          className="mt-3 bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4"
+          role="alert"
+        >
+          <p>{state.message || "Please fill proper data!"}</p>
+        </div>
+      )}
+      <form className="py-2 " action={formAction}>
         <div className="my-3 flex flex-col ">
           <label htmlFor="name">Your name</label>
           <input
@@ -26,7 +33,7 @@ const Share = () => {
         <div className="my-3 flex flex-col ">
           <label htmlFor="email">Your email</label>
           <input
-            type="text"
+            type="email"
             id="email"
             name="email"
             required
